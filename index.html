@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bibi ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    font-family:'Poppins',sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+        radial-gradient(circle at 20% 20%,#ff2f92 0%,transparent 25%),
+        radial-gradient(circle at 80% 80%,#7b2cff 0%,transparent 25%),
+        linear-gradient(135deg,#080014,#18002d,#30002f);
+    color:white;
+}
+
+/* BACKGROUND STARS */
+
+.stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:#fff;
+    border-radius:50%;
+    box-shadow:0 0 10px #fff;
+    animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:.15;transform:scale(.5)}
+    to{opacity:1;transform:scale(1.5)}
+}
+
+/* CARD */
+
+.card{
+    width:min(92%,520px);
+    padding:45px 30px;
+    text-align:center;
+    border-radius:35px;
+
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.2);
+    backdrop-filter:blur(25px);
+
+    box-shadow:
+        0 0 30px rgba(255,0,140,.2),
+        0 30px 80px rgba(0,0,0,.5);
+
+    position:relative;
+    z-index:10;
+
+    animation:cardIn 1.2s ease;
+}
+
+@keyframes cardIn{
+    from{
+        opacity:0;
+        transform:translateY(60px) scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+/* HEART */
+
+.big-heart{
+    font-size:80px;
+    display:inline-block;
+    filter:drop-shadow(0 0 25px #ff197d);
+    animation:heartbeat 1.15s infinite;
+}
+
+@keyframes heartbeat{
+    0%,100%{transform:scale(1)}
+    15%{transform:scale(1.18)}
+    30%{transform:scale(1)}
+    45%{transform:scale(1.15)}
+}
+
+/* NAME */
+
+.name{
+    font-size:52px;
+    font-weight:700;
+    margin-top:5px;
+
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #ff75b8,
+        #fff,
+        #c56cff
+    );
+
+    background-size:300%;
+    background-clip: border-box;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation:shine 4s linear infinite;
+}
+
+@keyframes shine{
+    0%{background-position:0%}
+    100%{background-position:300%}
+}
+
+.line{
+    width:100px;
+    height:3px;
+    margin:15px auto 25px;
+    border-radius:10px;
+    background:linear-gradient(90deg,#ff2995,#b62cff);
+    box-shadow:0 0 15px #ff2995;
+}
+
+/* TEXT */
+
+.text{
+    color:#ffdced;
+    font-size:16px;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.question{
+    font-size:24px;
+    font-weight:600;
+    line-height:1.5;
+    margin:20px 0 30px;
+}
+
+/* BUTTONS */
+
+.buttons{
+    height:70px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+}
+
+button{
+    border:none;
+    padding:15px 35px;
+    border-radius:50px;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#yes{
+    color:white;
+    background:linear-gradient(135deg,#ff1785,#b400ff);
+    box-shadow:0 0 25px rgba(255,0,150,.5);
+}
+
+#yes:hover{
+    transform:scale(1.12);
+    box-shadow:0 0 40px rgba(255,0,180,.9);
+}
+
+#no{
+    background:#fff;
+    color:#a00067;
+    position:relative;
+}
+
+/* SUCCESS */
+
+.success{
+    display:none;
+    animation:successIn 1s ease;
+}
+
+@keyframes successIn{
+    from{
+        opacity:0;
+        transform:scale(.5);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.success h2{
+    font-size:36px;
+    color:#ff8fc9;
+    text-shadow:0 0 20px #ff1687;
+    margin:15px 0;
+}
+
+.success p{
+    font-size:17px;
+    line-height:1.8;
+    color:#ffe5f2;
+}
+
+/* FLOATING HEARTS */
+
+.floating-heart{
+    position:fixed;
+    bottom:-50px;
+    pointer-events:none;
+    z-index:3;
+
+    animation:floatUp linear forwards;
+}
+
+@keyframes floatUp{
+    0%{
+        transform:translateY(0) rotate(0deg) scale(.5);
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translateY(-110vh)
+            rotate(360deg)
+            scale(1.3);
+        opacity:0;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+    .card{
+        padding:35px 20px;
+    }
+
+    .big-heart{
+        font-size:65px;
+    }
+
+    .name{
+        font-size:43px;
+    }
+
+    .question{
+        font-size:21px;
+    }
+
+    .text{
+        font-size:14px;
+    }
+
+    button{
+        padding:13px 27px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="card">
+
+    <!-- ASOSIY QISM -->
+
+    <div id="main">
+
+        <div class="big-heart">❤️</div>
+
+        <div class="name">Bibi</div>
+
+        <div class="line"></div>
+
+        <p class="text">
+            Bibi... ❤️
+            <br>
+            Balki bu gaplarni aytishga biroz kechikkan
+            bo‘lishim mumkin.
+            <br>
+            Lekin yuragimdagi gapni yashira olmayman...
+        </p>
+
+        <div class="question">
+            Men seni sevib qoldim. 🥹❤️
+            <br><br>
+            Men bilan birga yurishga rozimisan? 💍
+        </div>
+
+        <div class="buttons">
+
+            <button id="yes">
+                HA ❤️
+            </button>
+
+            <button id="no">
+                YO‘Q 🙈
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- HA BOSILGANDA -->
+
+    <div class="success" id="success">
+
+        <div class="big-heart">
+            💖
+        </div>
+
+        <h2>
+            Bibi... YES! 🥹❤️
+        </h2>
+
+        <p>
+            Bugun men uchun eng chiroyli kun bo‘ldi.
+            <br><br>
+
+            Endi sen shunchaki Bibi emassan...
+            <br>
+            Sen mening eng chiroyli hikoyamning
+            bir qismisan. 🌹
+            <br><br>
+
+            <strong>
+                Seni juda-juda yaxshi ko‘raman ❤️
+            </strong>
+        </p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* YULDUZLAR */
+
+const stars = document.getElementById("stars");
+
+for(let i=0;i<80;i++){
+
+    const star=document.createElement("div");
+
+    star.className="star";
+
+    star.style.left=Math.random()*100+"vw";
+    star.style.top=Math.random()*100+"vh";
+
+    star.style.animationDelay=Math.random()*3+"s";
+
+    stars.appendChild(star);
+}
+
+
+/* TUGMALAR */
+
+const yes=document.getElementById("yes");
+const no=document.getElementById("no");
+
+const main=document.getElementById("main");
+const success=document.getElementById("success");
+
+
+/* YO'Q TUGMASI QOCHADI */
+
+function escapeButton(){
+
+    const maxX=window.innerWidth-no.offsetWidth-15;
+    const maxY=window.innerHeight-no.offsetHeight-15;
+
+    const x=Math.random()*maxX;
+    const y=Math.random()*maxY;
+
+    no.style.position="fixed";
+
+    no.style.left=x+"px";
+    no.style.top=y+"px";
+}
+
+no.addEventListener("mouseenter",escapeButton);
+no.addEventListener("touchstart",escapeButton);
+
+
+/* HA */
+
+yes.addEventListener("click",()=>{
+
+    main.style.display="none";
+
+    success.style.display="block";
+
+    // Kuchli yurak yomg'iri
+    for(let i=0;i<100;i++){
+
+        setTimeout(()=>{
+            createHeart();
+        },i*40);
+
+    }
+
+});
+
+
+/* YURAK YARATISH */
+
+function createHeart(){
+
+    const heart=document.createElement("div");
+
+    heart.className="floating-heart";
+
+    const hearts=[
+        "❤️",
+        "💖",
+        "💕",
+        "💗",
+        "💓",
+        "💘",
+        "💝"
+    ];
+
+    heart.innerHTML=
+        hearts[Math.floor(Math.random()*hearts.length)];
+
+    heart.style.left=Math.random()*100+"vw";
+
+    heart.style.fontSize=
+        (15+Math.random()*35)+"px";
+
+    heart.style.animationDuration=
+        (4+Math.random()*5)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },9000);
+}
+
+
+/* DOIMIY YURAKLAR */
+
+setInterval(createHeart,700);
+
+</script>
+
+</body>
+</html>
